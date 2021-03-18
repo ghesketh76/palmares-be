@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 
     before_action :authorized
+    skip_before_action :authorized, only: [:login]
 
     def current_user
         auth_header = request.headers['Authorization']
