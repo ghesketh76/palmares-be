@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :access_tokens
   resources :users
 
   post '/login', to: 'application#login'
