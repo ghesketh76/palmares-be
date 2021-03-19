@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
                 user_id = JWT.decode(token, secret)[0]["user_id"]
                 @user = User.find(user_id)
             rescue
-                render json: {error: "Bad Token"}, status: :unauthorized
+                render json: {errors: ["Bad Token"]}, status: :unauthorized
             end
         end
     end
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
     end
 
     def authorized 
-        render json: {message: "Please Log In"}, status: :unauthorized unless logged_in?
+        render json: {errors: ["Please Log In"]}, status: :unauthorized unless logged_in?
     end
 
     def login 
