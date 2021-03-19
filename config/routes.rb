@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :refresh_tokens
   resources :access_tokens
   resources :users
 
