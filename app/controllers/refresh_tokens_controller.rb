@@ -1,5 +1,7 @@
 class RefreshTokensController < ApplicationController
 
+    
+
     def show
         @refresh_token = RefreshToken.find(params[:user_id])
         render json: @refresh_token
