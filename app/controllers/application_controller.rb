@@ -10,11 +10,12 @@ class ApplicationController < ActionController::API
             begin
                 secret = ENV['SECRET_KEY_BASE']
                 user_id = JWT.decode(token, secret)[0]["user_id"]
-                @user = User.find(user_id)
             rescue
                 render json: {errors: ["Bad Token"]}, status: :unauthorized
             end
         end
+        @user = User.find(user_id)
+        @refresh_token = RefreshToken.find_by(user_id: @user.id)
     end
 
     def logged_in?
