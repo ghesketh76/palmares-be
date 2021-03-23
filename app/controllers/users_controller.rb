@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
     def profile 
-        render json: {user: @user, refresh_token: @user.refresh_tokens}
+        render json: {user: current_user}
     end
 
     def index 
