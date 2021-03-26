@@ -7,5 +7,6 @@ class ScoresController < ApplicationController
 
     def create 
         @score = Score.create(user_id: params[:user_id], score: params[:score])
+        render json: @score
     end
 end
