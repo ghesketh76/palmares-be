@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
 
     def index 
         @score = Score.all 
-        render json: @score, includes: :user
+        render json: @score, include: :user
     end
 
     def create 
