@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   post '/login', to: 'application#login'
   get '/profile', to: 'users#profile'
-  get '/non_user_scores', to: 'score#non_user_scores'
+  get '/non_user_scores', to: 'scores#non_user_scores'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
