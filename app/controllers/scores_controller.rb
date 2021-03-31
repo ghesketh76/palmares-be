@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
     end
 
     def non_user_scores
-        @scores = Score.filter do |score|
+        @scores = Score.all.filter do |score|
             score.user_id != @user.id
         end
         render json: @scores, include: :user
