@@ -9,4 +9,10 @@ class ScoresController < ApplicationController
         @score = Score.create(user_id: params[:user_id], score: params[:score])
         render json: @score
     end
+
+    def non_user_scores
+        @scores = Score.filter do |score|
+            score[:user_id] != @user.id
+        end
+    end
 end
