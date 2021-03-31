@@ -14,5 +14,6 @@ class ScoresController < ApplicationController
         @scores = Score.filter do |score|
             score[:user_id] != @user.id
         end
+        render json: @scores
     end
 end
