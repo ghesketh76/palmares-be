@@ -33,7 +33,7 @@ class ApplicationController < ActionController::API
             @token = JWT.encode({user_id: @user.id}, secret)
             @refresh_token = RefreshToken.find_by(user_id: @user.id)
             @score = Score.find_by(user_id: @user.id)
-            render json: {user: @user, token: @token, refresh_token: @refresh_token}, status: :accepted
+            render json: {user: @user, token: @token, refresh_token: @refresh_token, score: @score}, status: :accepted
         else
             render json: {errors: ['Invalid username or password']}, status: :unauthorized
         end
